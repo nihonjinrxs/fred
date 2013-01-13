@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
+require 'rdoc/task' # 'rake/rdoctask'
 
 begin
   require 'jeweler'
@@ -9,11 +9,17 @@ begin
     gem.name = "fred"
     gem.summary = %Q{Ruby wrapper for the St. Louis Federal Reserve FRED API}
     gem.description = %Q{Ruby wrapper for the St. Louis Federal Reserve FRED API}
-    gem.email = "johnnyn@gmail.com"
-    gem.homepage = "http://github.com/phuphighter/fred"
-    gem.authors = ["Johnny Khai Nguyen"]
-    
-    gem.add_dependency('httparty', '>= 0.5.0')
+    gem.email = "ryan.b.harvey@gmail.com"
+    gem.homepage = "http://github.com/nihonjinrxs/fred"
+    gem.authors = ["Johnny Khai Nguyen","Ryan B. Harvey"]
+    # Dependencies
+    gem.add_dependency 'httparty', '>= 0.5.0'
+    gem.add_dependency 'hashie'
+    # Dependencies (Development)
+    gem.add_development_dependency 'rspec'
+    gem.add_development_dependency 'test-unit'
+    gem.add_development_dependency 'fakeweb'
+    #gem.add_development_dependency 'pathname'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

@@ -1,9 +1,9 @@
-require 'test/unit'
+require 'test-unit'
 require 'pathname'
 require 'rubygems'
 
 require 'shoulda'
-require 'matchy'
+require 'mcmire-matchy' #'matchy'
 require 'fakeweb'
 
 begin require 'redgreen'; rescue LoadError; end
