@@ -17,9 +17,7 @@ begin
     gem.add_dependency 'hashie'
     # Dependencies (Development)
     gem.add_development_dependency 'rspec'
-    gem.add_development_dependency 'test-unit'
     gem.add_development_dependency 'fakeweb'
-    #gem.add_development_dependency 'pathname'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

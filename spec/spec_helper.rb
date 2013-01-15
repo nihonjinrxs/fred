@@ -1,11 +1,8 @@
-# TODO: update for RSpec
+# TODO: test with RSpec
 
-require 'test-unit'
-require 'pathname'
 require 'rubygems'
+require 'bundler/setup'
 
-require 'shoulda'
-require 'mcmire-matchy' #'matchy'
 require 'fakeweb'
 
 begin require 'redgreen'; rescue LoadError; end
@@ -16,10 +13,10 @@ require 'fred'
 
 # Set the default allow_net_connect option--usually you'll want this off.
 # You don't usually want your test suite to make HTTP connections, do you?
-
 FakeWeb.allow_net_connect = false
 
-class Test::Unit::TestCase
+RSpec.configure do |config|
+
 end
 
 def fixture_file(filename)

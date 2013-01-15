@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Johnny Khai Nguyen", "Ryan B. Harvey"]
-  s.date = "2013-01-13"
+  s.date = "2013-01-15"
   s.description = "Ruby wrapper for the St. Louis Federal Reserve FRED API"
   s.email = "ryan.b.harvey@gmail.com"
   s.extra_rdoc_files = [
@@ -30,15 +30,15 @@ Gem::Specification.new do |s|
     "lib/fred/client.rb",
     "pkg/fred-0.1.0.gem",
     "pkg/fred-0.2.0.gem",
+    "spec/fixtures/category.xml",
+    "spec/fixtures/release.xml",
+    "spec/fixtures/releases.xml",
+    "spec/fixtures/series.xml",
+    "spec/fixtures/source.xml",
+    "spec/fixtures/sources.xml",
+    "spec/fred_spec.rb",
+    "spec/spec_helper.rb",
     "tasks/fred_tasks.rake",
-    "test/fixtures/category.xml",
-    "test/fixtures/release.xml",
-    "test/fixtures/releases.xml",
-    "test/fixtures/series.xml",
-    "test/fixtures/source.xml",
-    "test/fixtures/sources.xml",
-    "test/fred_test.rb",
-    "test/test_helper.rb",
     "uninstall.rb"
   ]
   s.homepage = "http://github.com/nihonjinrxs/fred"
@@ -54,14 +54,12 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<httparty>, [">= 0.5.0"])
       s.add_runtime_dependency(%q<hashie>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
-      s.add_development_dependency(%q<test-unit>, [">= 0"])
       s.add_development_dependency(%q<fakeweb>, [">= 0"])
     else
       s.add_dependency(%q<fred>, [">= 0"])
       s.add_dependency(%q<httparty>, [">= 0.5.0"])
       s.add_dependency(%q<hashie>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 0"])
-      s.add_dependency(%q<test-unit>, [">= 0"])
       s.add_dependency(%q<fakeweb>, [">= 0"])
     end
   else
@@ -69,7 +67,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<httparty>, [">= 0.5.0"])
     s.add_dependency(%q<hashie>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 0"])
-    s.add_dependency(%q<test-unit>, [">= 0"])
     s.add_dependency(%q<fakeweb>, [">= 0"])
   end
 end
