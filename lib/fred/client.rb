@@ -11,54 +11,24 @@ module Fred
       @api_key = options[:api_key] || Fred.api_key
     end
 
-    def category(secondary, options={})
-      if secondary.nil?
-        mashup(self.class.get("/category", :query => options.merge(self.default_options)))
-      else
-        mashup(self.class.get("/category/#{secondary}", :query => options.merge(self.default_options)))			
+    def self.create_api_endpoint(primary)
+      define_method("#{primary}".to_sym) do |secondary, options={}|
+        if secondary.nil?
+          mashup(self.class.get("/#{primary}", :query => options.merge(self.default_options)))
+        else
+          mashup(self.class.get("/#{primary}/#{secondary}", :query => options.merge(self.default_options)))
+        end
       end
     end
-    
-    def releases(secondary, options={})
-      if secondary.nil?
-        mashup(self.class.get("/releases", :query => options.merge(self.default_options)))
-      else
-        mashup(self.class.get("/releases/#{secondary}", :query => options.merge(self.default_options)))			
-      end
-    end
-    
-    def release(secondary, options={})
-      if secondary.nil?
-        mashup(self.class.get("/release", :query => options.merge(self.default_options)))
-      else
-        mashup(self.class.get("/release/#{secondary}", :query => options.merge(self.default_options)))			
-      end
-    end
-    
-    def series(secondary, options={})
-      if secondary.nil?
-        mashup(self.class.get("/series", :query => options.merge(self.default_options)))
-      else
-        mashup(self.class.get("/series/#{secondary}", :query => options.merge(self.default_options)))			
-      end
-    end
-    
-    def sources(secondary, options={})
-      if secondary.nil?
-        mashup(self.class.get("/sources?", :query => options.merge(self.default_options)))
-      else
-        mashup(self.class.get("/sources/#{secondary}", :query => options.merge(self.default_options)))			
-      end
-    end
-    
-    def source(secondary, options={})
-      if secondary.nil?
-        mashup(self.class.get("/source", :query => options.merge(self.default_options)))
-      else
-        mashup(self.class.get("/source/#{secondary}", :query => options.merge(self.default_options)))			
-      end
-    end
-    
+    private_class_method :create_api_endpoint
+
+    create_api_endpoint :category
+    create_api_endpoint :releases
+    create_api_endpoint :release
+    create_api_endpoint :series
+    create_api_endpoint :sources
+    create_api_endpoint :source
+
     protected
     
     def default_options
@@ -79,7 +49,6 @@ module Fred
         end
       end
     end
-
   end
 
   class SimpleClient < Client
