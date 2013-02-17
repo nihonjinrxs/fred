@@ -1,5 +1,7 @@
 # Fred
 
+[![Code Climate](https://codeclimate.com/github/nihonjinrxs/fred.png)](https://codeclimate.com/github/nihonjinrxs/fred)
+
 This is a Ruby wrapper for the St. Louis Federal Reserve Economic Data [Fred API](http://api.stlouisfed.org/).
 
 ## Installation
